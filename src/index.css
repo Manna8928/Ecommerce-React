@@ -1,0 +1,32 @@
+@import "tailwindcss";
+*{
+
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+body{
+    background: url('/src/assets/bg.jpg');
+    height: 100vh;
+    object-fit: contain;
+    overflow: auto;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+/* .product{
+    height: 700px;
+} */
+
+.card{
+    width: 220px;
+    height:50vh;
+    padding: 10px;
+    border-radius: 10px !important;
+}
+ .cardImg{
+    
+    height: 220px;
+    /* border: 2px solid red; */
+    background-size: contain !important;
+ }
