@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import Product from './ProductCard';
 
 export default function ProductGrid({ products }) {
+   
     return (
         <Grid
             container
@@ -19,8 +20,8 @@ export default function ProductGrid({ products }) {
             
             }}
         >
-            {products.map(product =>
-                <Grid key={product.id} size={{xs:6,md:3,xl:2}} >
+            {!!products.products && Object.values(products.products).map(product =>
+                <Grid key={product.id} size={{xs:6,sm:4,md:3,xl:2}} spacing={2}>
                     <Product key={product.id} {...product} />
                 </Grid>
             )}
