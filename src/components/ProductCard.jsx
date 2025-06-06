@@ -13,7 +13,7 @@ export default function Product(props){
         <CardMedia
          
           
-          image={props.image}
+          image={props.images[0]}
           alt={props.category}
           className='cardImg'
         />
@@ -22,7 +22,7 @@ export default function Product(props){
             {props.title}
           </Typography>
           <Typography  variant="body2" >
-            {props.rating.rate}
+            {props.rating}
           </Typography>
           <Typography  variant="body2">
             $ {props.price}

@@ -6,21 +6,27 @@
     
 }
 body{
-    background: url('/src/assets/bg.jpg');
-    height: 100vh;
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
     object-fit: contain;
     overflow: auto;
+     height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 ::-webkit-scrollbar{
     display: none;
 }
-/* .product{
-    height: 700px;
-} */
+.app{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .card{
     width: 220px;
-    height:50vh;
+    height: 350px;
     padding: 10px;
     border-radius: 10px !important;
 }

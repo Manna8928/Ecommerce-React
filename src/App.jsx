@@ -1,31 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Navbar from './components/Navbar';
 import Box from '@mui/material/Box';
-import Product from './components/ProductCard';
-import ProductGrid from './components/ProductGrid';
-
+import Home from './components/Home';
+import { CommerceContext } from './Context'
+import { Route, Routes } from 'react-router';
+import { Details } from '@mui/icons-material';
 
 const App = () => {
 
   const [products, setProducts] = useState([]);
-  useEffect(() => {
-    (async () => {
-      const data = await fetch('https://fakestoreapi.com/products');
-      const result = await data.json()
-      setProducts(result);
-    })();
-  }, [])
-  // console.log(products)
+  const [limit, setLimit] = useState(10);
 
+  const url = useMemo(() => {
+    return "https://dummyjson.com/products?limit=" + limit
+    // +"&skip=5"
+  }, [limit])
+  
+  useEffect(() => {
+
+    fetch(url)
+      .then(data => data.json())
+      .then(result => setProducts(result))
+  }, [url])
+
+  console.log(products)
 
   return (
-    <Box className='app' sx={{pt:"5px"}} >
-      <Navbar />
-      <img className='w-[100%] h-[70vh] object-cover' src='/src/assets/carosle2.jpg' />
-      <ProductGrid products={products}/>
-     
-    </Box>
+    <CommerceContext.Provider value={{ products }}>
+      <Box className='app' sx={{ pt: "5px" }} >
+        <Navbar />
+        <Routes>
+          <Route path='/' element = {<Home/>}/>
+          <Route path='/details/:id' element={<Details/>} />
+          
+        </Routes>
+        
+      </Box>
+    </CommerceContext.Provider>
   )
+
 }
 
 export default App
