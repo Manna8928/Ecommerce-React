@@ -1,0 +1,34 @@
+.tabMain {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 2px black solid;
+    width: 80vw;
+    padding: 10px;
+    background-color: azure;
+    border-radius: 5px;
+
+}
+
+.tabButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 0px 10px;
+    border-bottom: 1px rgba(0, 19, 37, 0.52) solid;
+
+}
+
+a {
+    padding: 5px 10px;
+}
+
+a.active {
+    color: #E80071;
+    border-bottom: 2px #E80071 solid;
+}
+
+.tabContent {
+    min-height: 100px;
+}

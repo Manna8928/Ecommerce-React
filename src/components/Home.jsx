@@ -1,10 +1,14 @@
-import React, { useContext } from 'react'
+import React, { useCallback, useContext } from 'react'
 import ProductGrid from './ProductGrid';
 import Button from '@mui/material/Button';
 import {CommerceContext} from '../Context'
 
 const Home = () => {
-    const {products}=useContext(CommerceContext)
+    const {products, setLimit}=useContext(CommerceContext)
+
+    const loadDetails=useCallback((id)=>{
+        
+    },[])
     return (
         <>
             <img className='w-[100%] h-[70vh] object-cover' src='/src/assets/carosle2.jpg' />

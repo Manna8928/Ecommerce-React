@@ -6,7 +6,7 @@ import Grid from '@mui/material/Grid';
 import Product from './ProductCard';
 
 export default function ProductGrid({ products }) {
-   
+
     return (
         <Grid
             container
@@ -15,17 +15,23 @@ export default function ProductGrid({ products }) {
             sx={{
                 justifyContent: 'flex-start',
                 alignItems: 'flex-start',
-                m:"auto",
-                p:4,
-            
+                m: "auto",
+                p: 4,
+
             }}
+            onClick={(e) => { 
+                console.log("clcked..",e.target.className)
+                
+            }}
+
         >
             {!!products.products && Object.values(products.products).map(product =>
-                <Grid key={product.id} size={{xs:6,sm:4,md:3,xl:2}} spacing={2}>
+                <Grid key={product.id} size={{ xs: 6, sm: 4, md: 3, xl: 2 }} spacing={2} >
                     <Product key={product.id} {...product} />
                 </Grid>
             )}
         </Grid>
+
 
     );
 }
