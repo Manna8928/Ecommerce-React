@@ -1,0 +1,13 @@
+ .detailsMain {
+     display: flex;
+     gap: 5px
+ }
+
+ .price {
+     display: flex;
+     gap: 5px
+ }
+
+ .productImg {
+     width: 30vw;
+ }

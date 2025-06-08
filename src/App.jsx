@@ -4,7 +4,10 @@ import Box from '@mui/material/Box';
 import Home from './components/Home';
 import { CommerceContext } from './Context'
 import { Route, Routes } from 'react-router';
-import { Details } from '@mui/icons-material';
+import Details from './components/Details';
+import Return from './components/Return';
+import Description from './components/Description';
+import AdditionalInfo from './components/AdditionalInfo';
 
 const App = () => {
 
@@ -15,7 +18,7 @@ const App = () => {
     return "https://dummyjson.com/products?limit=" + limit
     // +"&skip=5"
   }, [limit])
-  
+
   useEffect(() => {
 
     fetch(url)
@@ -23,18 +26,22 @@ const App = () => {
       .then(result => setProducts(result))
   }, [url])
 
-  console.log(products)
+  // console.log(products)
 
   return (
-    <CommerceContext.Provider value={{ products }}>
+    <CommerceContext.Provider value={{ products, setLimit }}>
       <Box className='app' sx={{ pt: "5px" }} >
         <Navbar />
         <Routes>
-          <Route path='/' element = {<Home/>}/>
-          <Route path='/details/:id' element={<Details/>} />
-          
+          <Route path='/' element={<Home />} />
+          <Route path='/details/:id' element={<Details />} >
+            <Route path="/details/:id/return" element={<Return />} />
+            <Route path="/details/:id/description" element={<Description />} />
+            <Route path="/details/:id/additional" element={<AdditionalInfo />} />
+          </Route>
+
         </Routes>
-        
+
       </Box>
     </CommerceContext.Provider>
   )
