@@ -1,7 +1,7 @@
 import React, { useCallback, useContext } from 'react'
 import ProductGrid from './ProductGrid';
 import Button from '@mui/material/Button';
-import {CommerceContext} from '../Context'
+import {CommerceContext} from '../context/Context'
 
 const Home = () => {
     const {products, setLimit}=useContext(CommerceContext)
