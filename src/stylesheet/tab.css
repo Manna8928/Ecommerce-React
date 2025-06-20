@@ -2,10 +2,10 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    border: 2px black solid;
+    border: 2px solid yellow;
     width: 80vw;
     padding: 10px;
-    background-color: azure;
+    background-color:  rgb(186, 225, 126);
     border-radius: 5px;
     margin-top: 10px;
 
@@ -21,11 +21,11 @@
 
 }
 
-a {
+.tabButton a {
     padding: 5px 10px;
 }
 
-a.active {
+.tabButton a.active {
     color: #E80071;
     border-bottom: 2px #E80071 solid;
 }

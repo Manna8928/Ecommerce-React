@@ -1,7 +1,7 @@
-import { Grid } from '@mui/material'
-import React, { useMemo } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { Grid } from '@mui/material';
+import React, { useMemo } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 const ReviewCard = ({ review }) => {
   const reviewDate = useMemo(() => {

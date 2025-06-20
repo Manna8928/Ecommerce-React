@@ -45,6 +45,8 @@
     color: black;
     background-color: rgb(186, 225, 126);
     border-radius: 5px;
+    border: 2px solid yellow;
+    margin-bottom: 10px;
    }
    
    .reviewGrid {

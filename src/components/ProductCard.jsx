@@ -9,12 +9,10 @@ import { NavLink } from 'react-router';
 export default function Product(props) {
   // console.log("in product page ",props.category, props.description,props.image,props.price,props.rating.count,props.rating.rate,props.title)
   return (
-    <NavLink to={"/details/"+props.id}>
+    <NavLink to={"/details/" + props.id}>
       <Card className='card'>
         <CardActionArea>
           <CardMedia
-
-
             image={props.images[0]}
             alt={props.category}
             className='cardImg'
