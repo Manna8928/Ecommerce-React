@@ -1,6 +1,5 @@
 import React from 'react'
 import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
 import Logo from "../assets/shoppingLogo.svg";
 import { NavLink } from 'react-router';
 
@@ -13,7 +12,9 @@ const Navbar = () => {
             </NavLink>
             <div className='flex gap-10 mr-2 h-[10%] items-center justify-center'>
                 <div>
-                    <Button variant="text">Home</Button>
+                    <NavLink to="/">
+                        <Button variant="text">Home</Button>
+                    </NavLink>
                     <Button variant="text">Shop</Button>
                     <Button variant="text">About</Button>
                     <Button variant="text">Contact</Button>

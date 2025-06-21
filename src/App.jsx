@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Navbar from './components/Navbar';
 import Box from '@mui/material/Box';
 import Home from './components/Home';
-import { CommerceContext } from './Context'
+import { CommerceContext } from './context/Context'
 import { Route, Routes } from 'react-router';
 import Details from './components/Details';
 import Return from './components/Return';
@@ -36,7 +36,7 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/details/:id' element={<Details />} >
             <Route path="/details/:id/return" element={<Return />} />
-            <Route path="/details/:id/description" element={<Description />} />
+            <Route index  element={<Description />} />
             <Route path="/details/:id/additional" element={<AdditionalInfo />} />
           </Route>
 
