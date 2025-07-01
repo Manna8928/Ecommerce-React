@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import ProductGrid from './ProductGrid';
 import Button from '@mui/material/Button';
-import { CommerceContext } from '../context/Context'
+import { CommerceContext } from '../context/CommerceContext'
 
 const Home = () => {
-    const { products, setLimit } = useContext(CommerceContext)
+    const { productList, setLimit } = useContext(CommerceContext)
     const [loader, setLoader] = useState(true)
     useEffect(() => {
-        !!products.products && setLoader(false)
-    }, [products])
+        !!productList.products && setLoader(false)
+    }, [productList])
 
     return (
         <>
@@ -16,8 +16,8 @@ const Home = () => {
             {loader ?
                 <img src="./src/assets/loader.gif" /> :
                 <div className='productDisplay'>
-                    <ProductGrid products={products} />
-                    {!!products.products && !!Object.values(products.products).length > 0 &&
+                    <ProductGrid products={productList} />
+                    {!!productList.products && !!Object.values(productList.products).length > 0 &&
                         <Button variant='contained' sx={{ mb: 2 }} onClick={() => {
                             setLimit(prev => prev + 10)
                         }}>
