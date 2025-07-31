@@ -2,29 +2,29 @@ import React, { useContext } from 'react'
 import Button from '@mui/material/Button';
 import Logo from "../assets/shoppingLogo.svg";
 import { NavLink } from 'react-router';
-import { CommerceContext } from '../context/CommerceContext';
+import { CommerceContext } from '../context/CommerceContext'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
-import { googleLogout } from '@react-oauth/google';
-import { Tooltip } from '@mui/material';
+import Tooltip from '@mui/material/Tooltip';
 
 const Navbar = () => {
 
-    const { modal, setModal, token, setToken, decodedToken } = useContext(CommerceContext)
-
+    const { modal, setModal, token, setToken, decodedToken, cart, setDrawerOpen, totalCartItems } = useContext(CommerceContext)
+   
     return (
-        <div className='flex h-[15%] w-[100vw] justify-between items-center m-6 p-3'>
+        <div className='flex gap-4 h-[15%] w-[100vw] justify-between items-center m-3'>
+
+            <NavLink to="/">
+                <img src={Logo} style={{ width: "4rem", marginInlineStart: "10px" }} />
+            </NavLink>
             <div className='flex gap-10 mr-2 h-[10%] items-center justify-center'>
-                <NavLink to="/">
-                    <img src={Logo} style={{ width: "4rem", marginInlineStart: "10px" }} />
-                </NavLink>
                 <div>
                     <NavLink to="/">
-                        <Button variant="text" sx={{ color: "yellow" }}> Home</Button>
+                        <Button variant="text">Home</Button>
                     </NavLink>
-                    <Button variant="text" sx={{ color: "yellow" }}>Shop</Button>
-                    <Button variant="text" sx={{ color: "yellow" }}>About</Button>
-                    <Button variant="text" sx={{ color: "yellow" }}>Contact</Button>
+                    <Button variant="text">Shop</Button>
+                    <Button variant="text">About</Button>
+                    <Button variant="text">Contact</Button>
                 </div>
             </div>
             <div className='logInSection'>
@@ -38,9 +38,9 @@ const Navbar = () => {
                                 </Tooltip>
                             </>}
 
-                        <div className='shoppingCart'>
+                        <div className='shoppingCart' onClick={()=>setDrawerOpen(prev=>!prev)}>
                             <ShoppingCartIcon sx={{ color: "white" }} fontSize='medium' />
-                            <span className='counter'>2</span>
+                            <span className='counter'>{totalCartItems}</span>
                         </div>
                         <PowerSettingsNewIcon sx={{ color: "red", cursor: 'pointer' }} onClick={() => {
                             console.log("logging out")
@@ -51,16 +51,17 @@ const Navbar = () => {
                     </div>
                     :
                     <Button variant="contained" sx={{ bgcolor: "red",ml:"150px" }} onClick={() =>
-                        setModal(true)}>Login</Button>
+                        {
+                            if(!token)
+                                setModal(true)
+                            else console.log("no token found")
+                        }
+                    }>Login</Button>
 
 
                 }
             </div>
         </div>
-
-
-
-
     )
 }
 
