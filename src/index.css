@@ -21,10 +21,6 @@ body {
     display: none;
 }
 
-.app {
-    position: relative;
-}
-
 .app,
 .productDisplay {
     display: flex;
@@ -46,6 +42,7 @@ body {
     /* border: 2px solid red; */
     background-size: contain !important;
 }
+
 
 .modal {
     /* background: rgb(162, 168, 163); */
@@ -81,7 +78,7 @@ body {
     justify-content: flex-start;
     align-items: flex-end;
     font-size: 12px;
-
+    cursor: pointer;
 }
 
 .counter {
@@ -108,4 +105,24 @@ body {
     /* Hides overflowing content */
     text-overflow: ellipsis;
     /* Displays ellipsis for truncated text */
+}
+
+.drawer {
+    width: 350px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    position: fixed;
+    top: 0;
+    border-radius: 5px;
+    transition: right 3s ease;
+    z-index: 1000;
+}
+
+.drawerOpen {
+    right: 0;
+}
+
+.drawerClose {
+    right: -400px;
+    /* transition: right 5s ease; */
 }
